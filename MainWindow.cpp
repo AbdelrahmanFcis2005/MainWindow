@@ -131,40 +131,40 @@ MainWindow::~MainWindow()
 {
 
 }
-/*void MainWindow::readFromFile(User& user)
-{
-    User::readFromFile("user.txt", user);
-	QMessageBox msgBox;
-	msgBox.setText("User data read from file:");
-	msgBox.setInformativeText("Name: " + user.getName() + "\nEmail: " + user.getEmail() + "\nPassword: " + user.getPassword());
-	msgBox.setStandardButtons(QMessageBox::Ok);
-    msgBox.setWindowIcon(QIcon("icon.png"));
- 
-    msgBox.exec();
-}
+//void MainWindow::readFromFile(User &user)
+//{
+//    User::readFromFile("user.txt", user);
+//	QMessageBox msgBox;
+//	msgBox.setText("User data read from file:");
+//	msgBox.setInformativeText("Name: " + user.getName() + "\nEmail: " + user.getEmail() + "\nPassword: " + user.getPassword());
+//	msgBox.setStandardButtons(QMessageBox::Ok);
+//    msgBox.setWindowIcon(QIcon("icon.png"));
+// 
+//    msgBox.exec();
+//}
 
-void MainWindow::showHomePage()
-{
-    QWidget* oldCentral = this->centralWidget();
-    if (oldCentral) {
-        oldCentral->deleteLater();
-    }
-
-    QWidget* homeWidget = new QWidget(this);
-    QVBoxLayout* layout = new QVBoxLayout(homeWidget);
-
-    QLabel* welcomeLabel = new QLabel("Welcome, " + user.getName());
-    welcomeLabel->setStyleSheet("font-size: 24px; color: #0078D7;");
-    layout->addWidget(welcomeLabel, 0, Qt::AlignCenter);
-
-    QPushButton* logoutButton = new QPushButton("Log out");
-    logoutButton->setStyleSheet("padding: 10px 20px; font-size: 16px;");
-    layout->addWidget(logoutButton, 0, Qt::AlignCenter);
-
-    connect(logoutButton, &QPushButton::clicked, this, [this]() {
-        QMessageBox::information(this, "Logout", "Logged out successfully!");
-        qApp->exit();
-        });
-    this->setCentralWidget(homeWidget);
-
-}*/
+//void MainWindow::showHomePage()
+//{
+//    QWidget* oldCentral = this->centralWidget();
+//    if (oldCentral) {
+//        oldCentral->deleteLater();
+//    }
+//
+//    QWidget* homeWidget = new QWidget(this);
+//    QVBoxLayout* layout = new QVBoxLayout(homeWidget);
+//
+//    QLabel* welcomeLabel = new QLabel("Welcome, " + user.getName());
+//    welcomeLabel->setStyleSheet("font-size: 24px; color: #0078D7;");
+//    layout->addWidget(welcomeLabel, 0, Qt::AlignCenter);
+//
+//    QPushButton* logoutButton = new QPushButton("Log out");
+//    logoutButton->setStyleSheet("padding: 10px 20px; font-size: 16px;");
+//    layout->addWidget(logoutButton, 0, Qt::AlignCenter);
+//
+//    connect(logoutButton, &QPushButton::clicked, this, [this]() {
+//        QMessageBox::information(this, "Logout", "Logged out successfully!");
+//        qApp->exit();
+//        });
+//    this->setCentralWidget(homeWidget);
+//
+//}

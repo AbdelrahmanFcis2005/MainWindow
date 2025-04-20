@@ -87,8 +87,8 @@ MainWindow::MainWindow(QWidget* parent)
         if (pagesWidget->currentWidget() == loginPage) {
             if (checked) {
                 toggleBtn->setIcon(QIcon("dark.svg"));
-                toggleBtn->setStyleSheet("background-color: #2c2c2c; border:none;");
-                centralWidget->setStyleSheet("background-color: #2c2c2c;");
+                toggleBtn->setStyleSheet("background-color: #2c2c2c; border:none");
+                centralWidget->setStyleSheet("background-color: #2c2c2c");
                 formContainer->setStyleSheet("background-color: #2c2c2c;border: 1.2px solid #0078D7; border-radius: 12px; padding: 25px;");
                 nameLineEdit->setStyleSheet("border: 1.2px solid #0078D7; border-radius: 4px; padding: 6px; height: 40px;margin:15px");
                 emailLineEdit->setStyleSheet("border: 1.2px solid #0078D7; border-radius: 4px; padding: 6px; height: 40px;margin:15px");

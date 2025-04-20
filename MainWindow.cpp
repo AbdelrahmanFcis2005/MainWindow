@@ -80,7 +80,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     QWidget* centralWidget = new QWidget;
     centralWidget->setLayout(mainLayoutGlobal);
-    centralWidget->setStyleSheet("background-color: white;");
+    centralWidget->setStyleSheet("background-color: white");
     this->setCentralWidget(centralWidget);
 
     connect(toggleBtn, &QPushButton::toggled, this, [=](bool checked) {

@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include <qscrollarea.h>
 #include <QIcon>
 
 MainWindow::MainWindow(QWidget* parent)
@@ -6,14 +7,14 @@ MainWindow::MainWindow(QWidget* parent)
 {
     this->setWindowTitle("Digital Wallet");
     this->setWindowIcon(QIcon("icon.png"));
-
+    QScrollArea* scrollarea = new QScrollArea(this);
+    scrollarea->setWidgetResizable(true);
     toggleBtn = new QPushButton;
     toggleBtn->setCheckable(true);
     toggleBtn->setFixedSize(35, 35);
     toggleBtn->setIcon(QIcon("light.svg"));
     toggleBtn->setIconSize(QSize(30, 30));
     toggleBtn->setStyleSheet("background-color: white; border:none;");
-
     QHBoxLayout* topBarLayout = new QHBoxLayout;
     topBarLayout->addWidget(toggleBtn);
 
@@ -45,7 +46,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     loginButton = new QPushButton("Log In");
     loginButton->setStyleSheet("background-color: #0078D7; font:20px;border: 1.2px solid #0078D7; color: white; padding: 8px 6px; border-radius: 15px; margin:auto; margin-bottom:5px");
-
+    
     QPushButton* signButton = new QPushButton("Sign In");
     signButton->setStyleSheet("background-color: white; font:20px; color: #0078D7; border: 1.2px solid #0078D7; padding: 8px 6px; border-radius: 15px; margin:auto; margin-top:5px");
 
@@ -77,13 +78,14 @@ MainWindow::MainWindow(QWidget* parent)
     QVBoxLayout* mainLayoutGlobal = new QVBoxLayout;
     mainLayoutGlobal->addLayout(topBarLayout, Qt::AlignHCenter);
     mainLayoutGlobal->addWidget(pagesWidget);
-
+    
     QWidget* centralWidget = new QWidget;
     centralWidget->setLayout(mainLayoutGlobal);
     centralWidget->setStyleSheet("background-color: white");
-    this->setCentralWidget(centralWidget);
+    scrollarea->setWidget(centralWidget);
+    this->setCentralWidget(scrollarea);
 
-    connect(toggleBtn, &QPushButton::toggled, this, [=](bool checked) {
+    connect(toggleBtn, &QPushButton::toggled, scrollarea, [=](bool checked) {
         if (pagesWidget->currentWidget() == loginPage) {
             if (checked) {
                 toggleBtn->setIcon(QIcon("dark.svg"));
@@ -110,11 +112,9 @@ MainWindow::MainWindow(QWidget* parent)
         }
         });
 
-    connect(loginButton, &QPushButton::clicked, this, [=]() {
+    connect(loginButton, &QPushButton::clicked, scrollarea, [=]() {
         showHomePage();
         });
-
-    this->showFullScreen();
 }
 
 void MainWindow::showHomePage() {
